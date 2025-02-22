@@ -14,8 +14,9 @@ export const helloWorld = onRequest((request, response) => {
 
 export const oscillateActive = onSchedule(
   {
-    schedule: "* * * * *", // cron 표현식 (1분마다)
-    invoker: "public", // 공개로 설정 (Cloud Scheduler 호출 가능)
+    schedule: "*/2 14-21 * * *", // 매 2분마다, 14:00 ~ 21:59 실행
+    timeZone: "Asia/Seoul", // 한국 시간 기준
+    invoker: "public",
   },
   async () => {
     try {
